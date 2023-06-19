@@ -50,3 +50,11 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# things we added
+build/
+toolchain/
+out/
+u-boot/
+kernel/
+buildroot/
