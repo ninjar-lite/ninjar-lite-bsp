@@ -1,2 +1,3 @@
-# ninjar-lite-bsp
-The BSP project for NINJAR-lite
+<h1 align="center">
+    NINJAR-lite BSP
+</h1>

@@ -33,9 +33,9 @@ else
 fi
 
 # setting up envs
-ARCH='arm'
-CROSS_COMPILE='arm-linux-gnueabi-'
-PATH=$PATH:$TOOLCHAIN_INSTALL_DIR/$TOOLCHAIN_EXTRACT_NAME
+ARCH=arm
+CROSS_COMPILE=arm-linux-gnueabi-
+PATH=$PATH:$TOOLCHAIN_INSTALL_DIR/$TOOLCHAIN_EXTRACT_NAME/bin
 
 export ARCH
 export CROSS_COMPILE

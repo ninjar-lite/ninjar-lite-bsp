@@ -2,10 +2,10 @@
 
 if [ -z "$BASH" ]; then echo "Please run this script $0 with bash"; exit; fi
 
-source "/scripts/utils.sh" || echo "failed to setup shell utils"
+source ./scripts/utils.sh || echo "failed to setup shell utils"
 source ./scripts/envsetup.sh || echo "failed to setup env"
 
-./scripts/get_toolchain.sh
+source ./scripts/get_toolchain.sh || echo "failed to setup toolchain"
 
 function do_banner() {
 cat << "EOF"  >> /dev/tty
