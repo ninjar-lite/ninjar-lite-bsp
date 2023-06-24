@@ -13,6 +13,16 @@ TOOLCHAIN_INSTALL_DIR="/opt"
 
 NCPU=$(grep -c processor /proc/cpuinfo)
 
+OK=0
+ERR=1
+
+REMOTE=ninjar-bsp
+UPSTREAM_URL=https://github.com/${REMOTE}
+
+UBOOT_URL=${UPSTREAM_URL}/u-boot
+KERNEL_URL=${UPSTREAM_URL}/linux
+BUILDROOT_URL=${UPSTREAM_URL}/buildroot
+
 # variables, functions exporting
 export PROJECT_NAME
 export WORKDIR
@@ -25,3 +35,11 @@ export TOOLCHAIN_DIR
 export TOOLCHAIN_INSTALL_DIR
 
 export NCPU
+export OK
+export ERR
+
+export REMOTE
+export UPSTREAM_URL
+export UBOOT_URL
+export KERNEL_URL
+export BUILDROOT_URL

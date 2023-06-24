@@ -37,6 +37,26 @@ function check_shell() {
 }
 export -f check_shell
 
+function check_runner() {
+    if [ "$whoami" != "root" ] || [ "$UID" != "1000" ]; then echo "Please run this script $0 with root access"; exit 1; fi
+}
+export -f check_runner
+
+function croot() {
+	cd $WORKDIR
+}
+export -f croot
+
+function cboot() {
+	cd $UBOOT_DIR || echo_warn "maybe you should fetch it first."
+        $SCRIPTS_DIR/get_things.sh
+}
+export -f cboot
+
+function ckernel() {
+	cd $KERNEL_DIR || echo_warn "maybe you should fetch it first."
+}
+
 # install requirements
 
 # only support debian like for now
