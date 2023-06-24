@@ -3,7 +3,7 @@
 PROJECT_NAME="ninjar-lite-bsp"
 
 WORKDIR="$(pwd)"
-BUILD_DIR="$WORKDIR/build"
+BUILD_DIR="$WORKDIR/out"
 SCRIPTS_DIR="$WORKDIR/scripts"
 UBOOT_DIR="$WORKDIR/u-boot"
 KERNEL_DIR="$WORKDIR/kernel"
