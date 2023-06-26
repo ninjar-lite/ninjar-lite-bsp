@@ -17,8 +17,7 @@ mkdir -p "$TOOLCHAIN_DIR"
 # download the toolchain
 # TODO: if failed, we should attempt a mirror
 if [ ! -e "$TOOLCHAIN_DIR/$TOOLCHAIN_FILE" ]; then
-    cd "$TOOLCHAIND_DIR" || echo ""
-    wget "$TOOLCHAIN_URL"
+    wget "$TOOLCHAIN_URL" -O "$TOOLCHAIN_DIR/$TOOLCHAIN_FILE"
     cd "$WORKDIR" || echo ""
 else
     echo_debug "toolchain has been downloaded at $TOOLCHAIN_DIR/$TOOLCHAIN_FILE"
