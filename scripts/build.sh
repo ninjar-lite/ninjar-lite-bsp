@@ -66,21 +66,32 @@ function do_build_all() {
 
 function do_banner() {
 cat << "EOF"  >> /dev/tty
- _   _ ___ _   _     _   _    ____  
-| \ | |_ _| \ | |   | | / \  |  _ \ 
-|  \| || ||  \| |_  | |/ _ \ | |_) |
-| |\  || || |\  | |_| / ___ \|  _ < 
-|_| \_|___|_| \_|\___/_/   \_\_| \_\
-                                    
+             _   _ ___ _   _     _   _    ____          ____ ____  ____  
+            | \ | |_ _| \ | |   | | / \  |  _ \        | __ ) ___||  _ \ 
+            |  \| || ||  \| |_  | |/ _ \ | |_) |       |  _ \___ \| |_) |
+            | |\  || || |\  | |_| / ___ \|  _ <        | |_) |__) |  __/ 
+            |_| \_|___|_| \_|\___/_/   \_\_| \_\       |____/____/|_|    
+                                                                         
 EOF
 }
 do_banner
 
 function do_usage() {
 cat << "EOF" >> /dev/tty
+Usage:
     ./build.sh <-h|uboot|kernel|buildroot> [param]
 
     -h      show this help page
+    
+    all		build all things and do a image pack
+
+	uboot   build uboot only
+
+	kernel  build kernel only
+
+	buildroot  build buildroot only
+
+	repack  repack a image use things has been built
 EOF
 }
 
@@ -89,11 +100,10 @@ case $1 in
 
     "-h")
         do_usage
-        exit 0
         ;;
 
     "all")
-	do_build_all
+		do_build_all
         ;;
 
     "uboot")
@@ -101,17 +111,21 @@ case $1 in
         ;;
     
     "kernel")
-	do_build_kernel
+		do_build_kernel
         ;;
     
     "buildroot")
-	do_build_buildroot
+		do_build_buildroot
         ;;
+
+	# "repack")
+	# 	do_pack
+	# 	;;
+
 esac
 
 if [ "$#" == "0" ]; then
-    echo_debug "by default, build all thing"
-    do_build_all
+    echo_success "by default, do nothing but export envs"
 else
     echo_love "as you wish."
 fi
