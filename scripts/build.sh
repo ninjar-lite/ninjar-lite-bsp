@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if [ -z "$BASH" ]; then echo "Please run this script $0 with bash"; exit 1; fi
+if [ -z "$BASH" ]; then echo "Please run this script $0 with bash"; fi
 
 source ./scripts/utils.sh || echo "failed to setup shell utils"
 source ./scripts/envsetup.sh || echo "failed to setup env"

@@ -1,8 +1,4 @@
-#!/bin/bash
-
-TOOLCHAIN_FILE="gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz"
-TOOLCHAIN_EXTRACT_NAME="gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi"
-TOOLCHAIN_URL="http://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabi/$TOOLCHAIN_FILE"
+#!/usr/bin/env bash
 
 if [ "$WORKDIR" == "" ]; then
     echo 'please run "source ./envsetup.sh" first'
@@ -30,15 +26,6 @@ if [ ! -e "$TOOLCHAIN_INSTALL_DIR/$TOOLCHAIN_EXTRACT_NAME" ]; then
 else
     echo_success "toolchain has been extracted at $TOOLCHAIN_INSTALL_DIR/$TOOLCHAIN_EXTRACT_NAME"
 fi
-
-# setting up envs
-ARCH=arm
-CROSS_COMPILE=arm-linux-gnueabi-
-PATH=$PATH:$TOOLCHAIN_INSTALL_DIR/$TOOLCHAIN_EXTRACT_NAME/bin
-
-export ARCH
-export CROSS_COMPILE
-export PATH
 
 # finally return to workdir
 cd "$WORKDIR" || echo_error "can't change to $WORKDIR"

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export RED_COLOR='\E[1;31m'
 export GREEN_COLOR='\E[1;32m'
@@ -33,7 +33,7 @@ function echo_love() {
 export -f echo_love
 
 function check_shell() {
-    if [ -z "$BASH" ]; then echo "Please run this script $0 with bash"; exit; fi
+    if [ -z "$BASH" ]; then echo "Please run this script $0 with bash"; fi
 }
 export -f check_shell
 

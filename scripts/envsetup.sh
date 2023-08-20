@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PROJECT_NAME="ninjar-lite-bsp"
 
@@ -8,7 +8,12 @@ SCRIPTS_DIR="$WORKDIR/scripts"
 UBOOT_DIR="$WORKDIR/u-boot"
 KERNEL_DIR="$WORKDIR/kernel"
 BUILDROOT_DIR="$WORKDIR/buildroot"
+
+# Toolchain
 TOOLCHAIN_DIR="$WORKDIR/toolchain"
+TOOLCHAIN_FILE="gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi.tar.xz"
+TOOLCHAIN_EXTRACT_NAME="gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi"
+TOOLCHAIN_URL="http://releases.linaro.org/components/toolchain/binaries/7.2-2017.11/arm-linux-gnueabi/$TOOLCHAIN_FILE"
 TOOLCHAIN_INSTALL_DIR="/opt"
 
 NCPU=$(grep -c processor /proc/cpuinfo)
@@ -22,6 +27,15 @@ UPSTREAM_URL=https://github.com/${REMOTE}
 UBOOT_URL=${UPSTREAM_URL}/u-boot
 KERNEL_URL=${UPSTREAM_URL}/linux
 BUILDROOT_URL=${UPSTREAM_URL}/buildroot
+
+# setting up envs
+ARCH=arm
+CROSS_COMPILE=arm-linux-gnueabi-
+PATH=$PATH:$TOOLCHAIN_INSTALL_DIR/$TOOLCHAIN_EXTRACT_NAME/bin
+
+export ARCH
+export CROSS_COMPILE
+export PATH
 
 # variables, functions exporting
 export PROJECT_NAME
